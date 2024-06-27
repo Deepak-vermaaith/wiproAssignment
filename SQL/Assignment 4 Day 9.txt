@@ -1,0 +1,51 @@
+Assignment 4: Design a database schema for a library system, 
+       including tables, fields, and constraints like NOT NULL, 
+       UNIQUE, and CHECK. Include primary and foreign keys to establish 
+       relationships between tables.
+
+Database Schema for a Library System
+
+Tables:
+
+1. Authors
+    - Fields:
+        - author_id (INT, PRIMARY KEY)
+        - author_name (VARCHAR(100), NOT NULL)
+        - birth_year (INT)
+        - country (VARCHAR(100))
+2. Books
+    - Fields:
+        - book_id (INT, PRIMARY KEY)
+        - title (VARCHAR(255), NOT NULL)
+        - isbn (VARCHAR(20), UNIQUE)
+        - publication_year (INT)
+        - author_id (INT, NOT NULL, FOREIGN KEY)
+        - available (BOOLEAN, DEFAULT TRUE, NOT NULL)
+
+3. Borrowers
+    - Fields:
+        - borrower_id (INT, PRIMARY KEY)
+        - name (VARCHAR(100), NOT NULL)
+        - address (VARCHAR(255))
+        - phone_number (VARCHAR(20))
+        - email (VARCHAR(100), UNIQUE, NOT NULL)
+4. Transactions
+    - Fields:
+        - transaction_id (INT, PRIMARY KEY)
+        - book_id (INT, NOT NULL, FOREIGN KEY)
+        - borrower_id (INT, NOT NULL, FOREIGN KEY)
+        - checkout_date (DATE, NOT NULL)
+        - return_date (DATE)
+Constraints:
+
+- PRIMARY KEY constraints on author_id, book_id, borrower_id, and transaction_id
+- FOREIGN KEY constraints on author_id in Books and book_id and borrower_id in Transactions
+- NOT NULL constraints on essential fields
+- UNIQUE constraints on isbn and email
+- CHECK constraint on return_date to ensure it's later than checkout_date
+
+Relationships:
+
+- One author can write many books (one-to-many)
+- One book can have many transactions (one-to-many)
+- One borrower can have many transactions (one-to-many)

@@ -1,0 +1,49 @@
+Assignment 3:- write a query to find the product whose category is electronics 
+	     find all the product whose price range is between 5000 and 10000
+             display name and price from product table.
+             display all the electronic category item which has price more than 2000
+             sort the product based on price in descending order.
+             sort the product based on name. 
+             count of product based on category. 
+             display all the product except electronics category.
+
+
+
+1. Find the product whose category is Electronics:
+
+SELECT *FROM Product
+WHERE Category = 'Electronics';
+
+#find all the product whose price range is between 5000 and 10000
+Ans:-
+select * from product 
+where price >= 5000 and price <=10000;
+
+#display name and price from product table.
+Ans:-
+  
+  select name,price from product;
+
+#display all the electronic category item which has price more than 2000
+ans:-
+   	select * from product 
+	where category='electronics' and price>2000;
+
+
+# sort the product based on price in descending order.
+Ans:-
+  select * from product 
+  order by price desc;
+
+# sort the product based on name. 
+Ans:-
+   select * from product 
+   order by name;
+
+# count of product based on category. 
+Ans:-
+   select category, count(*) from product group by category;
+
+#   display all the product except electronics category.
+Ans:-
+    select * from product where category !='electronics';

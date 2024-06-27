@@ -1,0 +1,26 @@
+Assignment 2: Ensure the script checks if a specific file (e.g., myfile.txt) exists in the current directory. 
+            If it exists, print "File exists", otherwise print "File not found".
+
+bash
+#!/bin/bash
+
+filename="myfile.txt"
+
+if [ -f "$filename" ]; then
+  echo "File exists"
+else
+  echo "File not found"
+fi
+
+Here's how the script works:
+
+1. The script defines the filename to check for (myfile.txt in this case).
+2. The if statement uses the [ -f "$filename" ] condition to check if the file exists.
+    - -f is a test operator that checks if the file exists and is a regular file (not a directory).
+    - The "$filename" is quoted to prevent issues with spaces in the filename.
+3. If the file exists, the script prints "File exists".
+4. If the file does not exist, the script prints "File not found".
+
+To use this script, save it to a file (e.g., check_file.sh), 
+make the file executable with chmod +x check_file.sh, and 
+then run it with ./check_file.sh in the directory where you want to check for the file.

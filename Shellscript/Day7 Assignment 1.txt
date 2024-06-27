@@ -1,0 +1,24 @@
+Assignment1:count the number of files and folder present in the directory.  
+if possible take the directory path from user. 
+
+#!/bin/bash
+
+echo "Enter the directory path: "
+read directory
+
+file_count=$(find "$directory" -type f | wc -l)
+folder_count=$(find "$directory" -type d | wc -l)
+
+echo "Number of files: $file_count"
+echo "Number of folders: $folder_count"
+
+Here's how the script works:
+
+1. The script prompts the user to enter the directory path using echo and read.
+2. It uses the find command to search for files and folders in the specified directory.
+3. The -type f option tells find to only consider files, while -type d considers only directories.
+4. The wc -l command counts the number of lines (i.e., files or folders) in the output.
+5. Finally, it prints the counts using echo.
+
+To use this script, save it to a file (e.g., count_files_folders.sh), 
+make the file executable with chmod +x count_files_folders.sh, and then run it with ./count_files_folders.sh.

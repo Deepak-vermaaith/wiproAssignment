@@ -1,0 +1,19 @@
+Assignment 2: Write a Sql queries to Perform DDL operation for product entity. 
+              perform  create table, drop table, alter table, rename 
+              table queries for the product entity.
+
+create table product(
+id number(10),
+productname varchar2(30),
+price number(10,2),
+stockquantity number(10)
+);
+
+drop table product;
+
+alter table product add(Brand varchar2(20));
+alter table product drop column Brand;
+alter table product rename column stockquantity to quantity;
+alter table product modify (stockquantity number(20));
+
+rename product to prd;

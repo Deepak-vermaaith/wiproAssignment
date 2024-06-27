@@ -1,0 +1,31 @@
+Assignment 1: create a product table with necessary attribute. 
+        write a query for table creation, 
+        insert the product data into the table.
+        write a query to reterive all the product details 
+        write a query to reterive id and product name 
+        write a query to update and delete a product.
+
+
+CREATE TABLE Product (
+  ProductID,
+  ProductName VARCHAR(255),
+  Price number(10, 2),
+  Category VARCHAR(100)
+);
+
+INSERT INTO Product (ProductID, ProductName, Price, Category)
+VALUES 
+(1, 'Product 1', 100.00, 'Category 1'),
+(2, 'Product 2', 200.00, 'Category 2'),
+(3, 'Product 3', 300.00, 'Category 3');
+
+SELECT * FROM Product;
+
+SELECT ProductID, ProductName FROM Products1;
+
+UPDATE Product
+SET Price = 150.00 
+WHERE ProductID = 1;
+
+DELETE FROM Product 
+WHERE ProductID = 2;

@@ -1,0 +1,28 @@
+Assignment 3: Write a script that reads numbers from the user until they
+              enter '0'. The script should also print whether each number is odd or even.
+
+#!/bin/bash
+
+while true; do
+  read -p "Enter a number (0 to quit): " num
+  if [ "$num" -eq 0 ]; then
+    break
+  fi
+  if [ "$((num % 2))" -eq 0 ]; then
+    echo "$num is even"
+  else
+    echo "$num is odd"
+  fi
+done
+
+Here's how the script works:
+
+1. The script uses a while loop to repeatedly prompt the user for input.
+2. The read command is used to read the user's input, with a prompt message.
+3. If the user enters '0', the script exits the loop using the break command.
+4. Otherwise, the script checks if the number is even or odd using the modulo operator (%).
+5. If the number is even, it prints "$num is even".
+6. If the number is odd, it prints "$num is odd".
+
+To use this script, save it to a file (e.g., odd_or_even.sh), 
+make the file executable with chmod +x odd_or_even.sh, and then run it with ./odd_or_even.sh.
