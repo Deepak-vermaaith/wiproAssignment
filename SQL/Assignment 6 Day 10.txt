@@ -1,0 +1,23 @@
+Assignment 6: Utilize a subquery to find customers who have placed orders above the average order value, 
+and write a UNION query to combine two SELECT statements with the same number of columns.
+
+
+SELECT *
+FROM customers
+WHERE customer_id IN (
+    SELECT customer_id
+    FROM orders
+    GROUP BY customer_id
+    HAVING AVG(order_value) > (
+        SELECT AVG(order_value)
+        FROM orders
+    )
+);
+
+
+
+SELECT customer_id, customer_name, 'Customer' AS type
+FROM customers
+UNION
+SELECT employee_id, employee_name, 'Employee' AS type
+FROM employees;

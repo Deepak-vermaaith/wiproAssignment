@@ -1,0 +1,25 @@
+Assignment5: Craft a query using an INNER JOIN to combine 'orders' and 'customers' tables for customers in a specified region, 
+and a LEFT JOIN to display all customers including those without orders.
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+SELECT customers.customer_name, orders.order_date
+FROM customers
+INNER JOIN orders
+ON customers.customer_id = orders.customer_id
+WHERE customers.region = 'specified_region';
+
+UNION ALL
+
+SELECT customers.customer_name, NULL
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id
+WHERE customers.region = 'specified_region' AND orders.order_id IS NULL
+
+This query uses an INNER JOIN to combine the 'orders' and 'customers' tables for customers in the specified region, 
+and a LEFT JOIN to display all customers, including those without orders. The UNION ALL operator is used to combine the results of the two queries.
+
+The first query selects the customer name and order date for customers in the specified region who have placed orders. 
+The second query selects the customer name and NULL (to indicate no order) for customers in the specified region who have not placed orders.
